@@ -9,12 +9,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: - Properties
+    
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
     
     private let scrollStackViewContainer: UIStackView = {
         let view = UIStackView()
@@ -24,14 +25,12 @@ class ViewController: UIViewController {
         return view
     }()
     
-    
     private let subView1: UIView = {
         let view = UIView()
         view.heightAnchor.constraint(equalToConstant: 200).isActive = true
         view.backgroundColor = UIColor.blue
         return view
     }()
-    
     
     private let subview2: UIView = {
         let view = UIView()
@@ -47,11 +46,15 @@ class ViewController: UIViewController {
         return view
     }()
     
+    // MARK: - Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupScrollView()
     }
 
+    // MARK: - Helper functions
+    
     private func setupScrollView() {
         let margins = view.layoutMarginsGuide
         view.addSubview(scrollView)
@@ -68,10 +71,8 @@ class ViewController: UIViewController {
         scrollStackViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
         scrollStackViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         configureContainerView()
-        
     }
 
-    
     private func configureContainerView() {
         scrollStackViewContainer.addArrangedSubview(subView1)
         scrollStackViewContainer.addArrangedSubview(subview2)
